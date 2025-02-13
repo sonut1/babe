@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Will You Be My Valentine? 💌</title>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        /* General Styles */
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #ff6f61, #ff3b77);
+            font-family: 'Poppins', sans-serif;
+            color: white;
+            text-align: center;
+            overflow: hidden;
+            cursor: url('heart-cursor.png'), auto; /* Heart-shaped cursor */
+        }
+
+        .container {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(10px);
+            width: 90%;
+            max-width: 500px;
+            position: relative;
+            z-index: 2;
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            0% { opacity: 0; transform: translateY(-20px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        h1 {
+            font-family: 'Great Vibes', cursive;
+            font-size: 4em;
+            margin-bottom: 20px;
+            text-shadow: 0 0 10px rgba(255, 0, 0, 0.8), 0 0 20px rgba(255, 0, 0, 0.8);
+            animation: glow 2s infinite alternate;
+        }
+
+        @keyframes glow {
+            0% { text-shadow: 0 0 10px rgba(255, 0, 0, 0.8), 0 0 20px rgba(255, 0, 0, 0.8); }
+            100% { text-shadow: 0 0 20px rgba(255, 0, 0, 0.8), 0 0 40px rgba(255, 0, 0, 0.8); }
+        }
+
+        .buttons {
+            display: flex;
+            justify-content: space-around;
+            gap: 20px;
+        }
+
+        .buttons button {
+            padding: 15px 30px;
+            font-size: 1.2em;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: transform 0.2s, background-color 0.2s;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            border: 2px solid white;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .buttons button:hover {
+            transform: scale(1.1);
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        .buttons button#yes {
+            background: #4CAF50;
+            border: 2px solid #4CAF50;
+        }
+
+        .buttons button#no {
+            background: #f44336;
+            border: 2px solid #f44336;
+        }
+
+        /* Floating Hearts */
+        .hearts {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+
+        .heart {
+            position: absolute;
+            color: #ff4081;
+            font-size: 2em;
+            animation: float 10s infinite;
+            top: -10%;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0) rotate(0deg); }
+            100% { transform: translateY(110vh) rotate(360deg); }
+        }
+
+        .heart1 { left: 5%; animation-duration: 8s; }
+        .heart2 { left: 25%; animation-duration: 10s; }
+        .heart3 { left: 50%; animation-duration: 7s; }
+        .heart4 { left: 70%; animation-duration: 9s; }
+        .heart5 { left: 85%; animation-duration: 6s; }
+
+        /* Confetti Animation */
+        .confetti {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background-color: #ff4081;
+            animation: confetti-fall 5s linear infinite;
+        }
+
+        @keyframes confetti-fall {
+            0% { transform: translateY(-10vh) rotate(0deg); }
+            100% { transform: translateY(110vh) rotate(720deg); }
+        }
+
+        /* Media Query for Mobile Devices */
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 3em;
+            }
+
+            .buttons button {
+                font-size: 1em;
+                padding: 10px 20px;
+            }
+        }
+
+        /* Hidden Sections */
+        .hidden {
+            display: none;
+        }
+
+        /* Yes Page Styles */
+        .yes-page {
+            background: rgba(0, 128, 0, 0.7);
+        }
+
+        .yes-page h1 {
+            font-size: 3.5em;
+        }
+
+        /* No Page Styles */
+        .no-page {
+            background: rgba(255, 0, 0, 0.7);
+        }
+
+        .no-page h1 {
+            font-size: 3.5em;
+        }
+    </style>
+</head>
+<body>
+    <!-- Main Page -->
+    <div id="main-page" class="container">
+        <h1>Will You Be My Valentine? 💌</h1>
+        <div class="buttons">
+            <button id="yes">Yes 😊❤️</button>
+            <button id="no">No 😢💔</button>
+        </div>
+    </div>
+
+    <!-- Yes Page -->
+    <div id="yes-page" class="container hidden yes-page">
+        <h1>Yay!! For pressing Yes I have somehting for youu! Bubu 💗😊</h1>
+        <p>With you, I’ve discovered the true meaning of love, and I want to spend the rest of my life showing you how much you mean to me.💕🌹</p>
+        <p>I Love Youuu so much Bubu 💗</p>
+        <p>Happy Valentine's Day 💖</p>
+        <div class="hearts">
+            <div class="heart heart1">❤️</div>
+            <div class="heart heart2">💖</div>
+            <div class="heart heart3">💕</div>
+            <div class="heart heart4">💓</div>
+            <div class="heart heart5">💗</div>
+        </div>
+    </div>
+
+    <!-- No Page -->
+    <div id="no-page" class="container hidden no-page">
+        <h1>Tod di n Dil Mera! 😢💔</h1>
+        <p>Ajeeb Kuti hai jaruri h No press krna???🥺</p>
+    </div>
+
+    <!-- Confetti -->
+    <div id="confetti-container"></div>
+
+    <!-- Audio for Background Music -->
+    <audio id="background-music" loop>
+        <source src="romantic-music.mp3" type="audio/mpeg"> <!-- Add your music file -->
+        Your browser does not support the audio element.
+    </audio>
+
+    <script>
+        // Handle button clicks
+        document.getElementById('yes').addEventListener('click', function() {
+            document.getElementById('main-page').classList.add('hidden');
+            document.getElementById('yes-page').classList.remove('hidden');
+            startConfetti();
+            document.getElementById('background-music').play();
+        });
+
+        document.getElementById('no').addEventListener('click', function() {
+            document.getElementById('main-page').classList.add('hidden');
+            document.getElementById('no-page').classList.remove('hidden');
+        });
+
+        // Confetti Animation
+        function startConfetti() {
+            const confettiContainer = document.getElementById('confetti-container');
+            for (let i = 0; i < 100; i++) {
+                const confetti = document.createElement('div');
+                confetti.classList.add('confetti');
+                confetti.style.left = `${Math.random() * 100}vw`;
+                confetti.style.animationDuration = `${Math.random() * 3 + 2}s`;
+                confetti.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 50%)`;
+                confettiContainer.appendChild(confetti);
+            }
+        }
+    </script>
+</body>
+</html>
